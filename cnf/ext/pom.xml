@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.repo</groupId>
+	<artifactId>repo</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+
+	<properties>
+		<pax.exam.version>5.0.0-SNAPSHOT</pax.exam.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.ops4j.pax.exam</groupId>
+			<artifactId>pax-exam-starter-acceptance</artifactId>
+			<version>${pax.exam.version}</version>
+		</dependency>
+	</dependencies>
+</project>
