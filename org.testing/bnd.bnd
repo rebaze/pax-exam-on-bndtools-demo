@@ -51,7 +51,7 @@ acceptance-rest-client: \
 
 
 # Discover and run all test cases annotated with the @RunWith annotation
-Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith}
+#Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith}
 
 # Build dependencies 
 -buildpath: \
@@ -69,6 +69,7 @@ Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith}
 	org.apache.felix.framework,\
 	org.hamcrest:hamcrest-core,\
 	org.hamcrest:hamcrest-library
+	
 		
 javac.source: 1.8
 javac.target: 1.8
@@ -77,7 +78,19 @@ javac.target: 1.8
 # Other runtime dependencies should be added as necessary
 -runbundles: \
 	${junit},\
-	${mockito}
+	${mockito}, \
+	 ${junit},\
+	${mockito},\
+	${exam-base},\
+	${acceptance-rest-client},\
+	slf4j.api;version=1.6,\
+	osgi.annotation;version=6.0.1,\
+	biz.aQute.bndlib;version=3.3,\
+	biz.aQute.repository;version=3.3,\
+	slf4j.simple,\
+	org.apache.felix.framework,\
+	org.hamcrest:hamcrest-core,\
+	org.hamcrest:hamcrest-library
 
 Bundle-Version: 0.0.0.${tstamp}
 Private-Package: org.testing

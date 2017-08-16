@@ -11,3 +11,6 @@ javac.target: 1.8
 
 Bundle-Version: 0.0.0.${tstamp}
 Private-Package: org.hello.provider
+
+#Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith}
+

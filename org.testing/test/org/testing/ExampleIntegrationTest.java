@@ -10,6 +10,7 @@ import org.ops4j.pax.exam.acceptance.SessionSpec;
 import org.ops4j.pax.exam.acceptance.junit4.OSGiTestSubjectRule;
 import org.ops4j.pax.exam.acceptance.junit4.TestSubjectRule;
 import org.ops4j.pax.exam.acceptance.rest.api.RestClient;
+import org.ops4j.pax.exam.acceptance.rest.api.RestRequest;
 import org.ops4j.pax.exam.bnd.BndtoolsOptions;
 
 public class ExampleIntegrationTest {
@@ -29,7 +30,15 @@ public class ExampleIntegrationTest {
 	public void workflowTest() {
 		ClientConfiguration correct = new ClientConfiguration("admin", "admin");
 		RestClient rest = subject.createClient(RestClient.class, correct);
-		rest.get("/foo").then().statusCode(404);
-		rest.get("/system/console").then().statusCode(200);
+		rest.getWithRetry(RestRequest.request("/foo")).then().statusCode(404);
+		rest.getWithRetry(RestRequest.request("/system/console")).then().statusCode(200);
+	}
+	
+	@Test
+	public void workflowTest2() throws Exception {
+		ClientConfiguration correct = new ClientConfiguration("admin", "admin");
+		RestClient rest = subject.createClient(RestClient.class, correct);
+		rest.getWithRetry(RestRequest.request("/foo")).then().statusCode(404);
+		rest.getWithRetry(RestRequest.request("/system/console")).then().statusCode(200);
 	}
 }
